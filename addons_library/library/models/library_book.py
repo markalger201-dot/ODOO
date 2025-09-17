@@ -36,7 +36,6 @@ class LibraryBook(models.Model):
 
     @api.constrains("category_ids")
     def _check_category_limit_and_duplicates(self):
-        """Enforce 5-category limit and prevent duplicate categories per book"""
         for book in self:
             if len(book.category_ids) > 5:
                 raise ValidationError("A book can have at most 5 categories.")
@@ -68,7 +67,6 @@ class LibraryBookCategory(models.Model):
 
     @api.model
     def create_default_categories(self):
-        """Automatically create default categories if they don't exist"""
         default_categories = ["Fiction", "Horror", "Mystery", "Science", "Biography"]
         for category_name in default_categories:
             if not self.search([("name", "=", category_name)]):
