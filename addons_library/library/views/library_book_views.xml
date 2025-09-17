@@ -15,7 +15,7 @@
         </field>
     </record>
     
-    <!-- Form View for Books -->
+    
     <record id="library_book_view_form" model="ir.ui.view">
         <field name="name">library.book.view.form</field>
         <field name="model">library.book</field>
@@ -26,7 +26,7 @@
                         <field name="name"/>
                         <field name="isbn_13"/>
                         <field name="author_id"/>
-                        <!-- Many2many tags for selecting categories -->
+                      
                         <field name="category_ids" widget="many2many_tags"/>
                         <field name="category_count" readonly="1"/>
                     </group>
@@ -35,25 +35,24 @@
         </field>
     </record>
     
-    <!-- Action for Books -->
+ 
     <record id="library_book_action" model="ir.actions.act_window">
         <field name="name">Books</field>
         <field name="res_model">library.book</field>
         <field name="view_mode">tree,form</field>
     </record>
     
-    <!-- Main Library Menu -->
+   
     <menuitem id="library_menu_main" name="Library" sequence="10"/>
     
-    <!-- Submenu for Books -->
+   
     <menuitem
         id="library_book_menu"
         name="Books"
         action="library_book_action"
         parent="library_menu_main"
         sequence="10"/>
-    
-    <!-- Tree and Form Views for Categories -->
+  
     <record id="library_category_view_tree" model="ir.ui.view">
         <field name="name">library.book.category.tree</field>
         <field name="model">library.book.category</field>
@@ -78,14 +77,14 @@
         </field>
     </record>
 
-    <!-- Action for Categories -->
+   
     <record id="library_category_action" model="ir.actions.act_window">
         <field name="name">Categories</field>
         <field name="res_model">library.book.category</field>
         <field name="view_mode">tree,form</field>
     </record>
 
-    <!-- Submenu for Categories -->
+  
     <menuitem
         id="library_category_menu"
         name="Categories"
